@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+     function fetchdata() {
+
+    const url = "https://cors-anywhere.herokuapp.com/";
+    fetch(url + "https://www.google.com/basepages/producttype/taxonomy-with-ids.en-US.txt")
+      .then(response => {
+        return response.text();
+      }).then(data => {
+        obj={};
+        var totaldata = data.split("\n");
+     
+     for(var i=1 ;i<=totaldata.length-1;i++){
+         var arr= totaldata[i].split(/[>]+/);
+        
+            if(arr.length==1){
+
+               
+             var arr1=arr[0].split("-")[1];
+             
+            var data= arr1;
+            obj[data]={};
+                 
+            if(arr.length==2){
+                obj[data][]={};
+            }
+
+        }
+
+     }
+     console.log(obj);
+      })
+    }
+fetchdata();
+
+</script>
+</html>
